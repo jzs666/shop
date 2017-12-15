@@ -1,6 +1,8 @@
-it/akademija/HelloWorld.class
-it/akademija/UserDao.class
-it/akademija/User.class
 it/akademija/App.class
+it/akademija/IProductDAO.class
+it/akademija/IUserDao.class
+it/akademija/Controller.class
+it/akademija/ProductDTO.class
 it/akademija/AppConfig.class
 it/akademija/UserService.class
+it/akademija/UserDTO.class

@@ -1,6 +1,8 @@
-/home/juozas/hello-world-calc/src/main/java/it/akademija/HelloWorld.java
-/home/juozas/hello-world-calc/src/main/java/it/akademija/UserDao.java
+/home/juozas/hello-world-calc/src/main/java/it/akademija/UserDTO.java
+/home/juozas/hello-world-calc/src/main/java/it/akademija/IUserDao.java
 /home/juozas/hello-world-calc/src/main/java/it/akademija/AppConfig.java
 /home/juozas/hello-world-calc/src/main/java/it/akademija/App.java
 /home/juozas/hello-world-calc/src/main/java/it/akademija/UserService.java
-/home/juozas/hello-world-calc/src/main/java/it/akademija/User.java
+/home/juozas/hello-world-calc/src/main/java/it/akademija/ProductDTO.java
+/home/juozas/hello-world-calc/src/main/java/it/akademija/Controller.java
+/home/juozas/hello-world-calc/src/main/java/it/akademija/IProductDAO.java

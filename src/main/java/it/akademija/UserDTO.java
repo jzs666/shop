@@ -2,13 +2,12 @@ package it.akademija;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import javax.persistence.Entity;
 
 @Entity
 public final class UserDTO implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	@Column
 	private String username;
 	@Column
