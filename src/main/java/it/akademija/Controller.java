@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
 @RestController // rest valdiklis
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/")
 public class Controller {
 	@Autowired
 	private UserService userServicE;
@@ -26,13 +26,13 @@ public class Controller {
 		userServicE.createUser(user);
 	}
 
-	@RequestMapping(path = "/products", method = RequestMethod.GET)
+	@RequestMapping(path = "/cart-details", method = RequestMethod.GET)
 	@GetMapping
 	public List<ProductDTO> getProducts() {
 		return userServicE.getProducts();
 	}
 
-	@RequestMapping(path = "/products", method = RequestMethod.POST)
+	@RequestMapping(path = "/cart-details", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createProducts(@RequestBody final ProductDTO product) {
 		userServicE.createProducts(product);
