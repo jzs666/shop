@@ -28,13 +28,13 @@ public class Controller {
 
 	@RequestMapping(path = "/cart-details", method = RequestMethod.GET)
 	@GetMapping
-	public List<ProductDTO> getProducts() {
+	public List<Product2DTO> getProducts() {
 		return userServicE.getProducts();
 	}
 
 	@RequestMapping(path = "/cart-details", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
-	public void createProducts(@RequestBody final ProductDTO product) {
+	public void createProducts(@RequestBody final Product2DTO product) {
 		userServicE.createProducts(product);
 	}
 

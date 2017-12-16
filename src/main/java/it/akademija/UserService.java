@@ -27,12 +27,12 @@ public class UserService {
 	}
 
 	@Transactional(readOnly = true)
-	public List<ProductDTO> getProducts() {
+	public List<Product2DTO> getProducts() {
 		return productDao.findAll();
 	}
 
 	@Transactional
-	public void createProducts(ProductDTO product) {
+	public void createProducts(Product2DTO product) {
 		productDao.save(product);
 	}
 
