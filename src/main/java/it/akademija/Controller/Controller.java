@@ -12,6 +12,7 @@ import it.akademija.Service.UserService;
 import org.springframework.http.HttpStatus;
 
 @RestController // rest valdiklis
+@CrossOrigin(origins = "http://localhost:8080")
 @RequestMapping(value = "/api/users")
 public class Controller {
 	@Autowired
