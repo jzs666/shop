@@ -13,6 +13,7 @@ import it.akademija.Respository.IProductRepository;
 import it.akademija.Respository.IUserDao;
 
 @Service
+@Transactional
 //@Scope(value="prototype")
 public class UserService {
 
@@ -31,14 +32,14 @@ public class UserService {
 		userDao.save(user);
 	}
 
-	@Transactional(readOnly = true)
-	public List<ProductDTO> getProducts() {
-		return productDao.findAll();
-	}
-
-	@Transactional
-	public void createProducts(ProductDTO product) {
-		productDao.save(product);
-	}
+//	@Transactional(readOnly = true)
+//	public List<ProductDTO> getProducts() {
+//		return productDao.findAll();
+//	}
+//
+//	@Transactional
+//	public void createProducts(ProductDTO product) {
+//		productDao.save(product);
+//	}
 
 }

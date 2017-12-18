@@ -31,16 +31,16 @@ public class Controller {
 		userServicE.createUser(user);
 	}
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	@GetMapping
-	public List<ProductDTO> getProducts() {
-		return userServicE.getProducts();
-	}
-
-	@RequestMapping(path = "/cart-details", method = RequestMethod.POST)
-	@ResponseStatus(HttpStatus.CREATED)
-	public void createProducts(@RequestBody final ProductDTO product) {
-		userServicE.createProducts(product);
-	}
+//	@RequestMapping(path = "/", method = RequestMethod.GET)
+//	@GetMapping
+//	public List<ProductDTO> getProducts() {
+//		return userServicE.getProducts();
+//	}
+//
+//	@RequestMapping(path = "/cart-details", method = RequestMethod.POST)
+//	@ResponseStatus(HttpStatus.CREATED)
+//	public void createProducts(@RequestBody final ProductDTO product) {
+//		userServicE.createProducts(product);
+//	}
 
 }

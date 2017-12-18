@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.akademija.DTO.CartDTO;
-import it.akademija.Respository.ICartRepository;
+
+import it.akademija.DTO.*;
+import it.akademija.Respository.*;
+
 
 @Transactional
 @Service
@@ -16,41 +18,42 @@ public class CartService {
 	@Autowired
 	private ICartRepository cartRepo;
 	
+//	@Autowired
+//	private IProductRepository productRepo;
+	
+	
+
 	public List<CartDTO> getAll() {
-		return cartRepo.findAll(); 
+		return cartRepo.findAll();
 	}
 //
-//	public List<CartDTO> getProducts(long cart_id) {
-//		// TODO Auto-generated method stub
-//		return null;
+//	public List<ProductDTO> getProducts(long cart_id) {
+//		return productRepo.findAll();
 //	}
-//
-//	public CartDTO findOne(long id) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public CartDTO addCart(CartDTO cart) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	public void delete(CartDTO cart) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
+
+	public CartDTO addCart(CartDTO cart) {
+		return cartRepo.save(cart);
+	}
+
+	public CartDTO findOne(long id) {
+		return cartRepo.findOne(id);
+	}
+
+	public void delete(CartDTO cart) {
+		cartRepo.delete(cart);
+		
+	}
+
 //	public void addToCart(Long cart_id, Long product_id) {
-//		// TODO Auto-generated method stub
-//		
+//		 CartDTO cart = cartRepo.findOne(cart_id);
+//	        ProductDTO product = productRepo.findOne(product_id);
+//	        if(cart == null || product == null){
+//	            throw new NullPointerException();
+//	        }
+//	        cart.getProducts().add(product);		
 //	}
-//
-//	public ICartRepository getCartRepo() {
-//		return cartRepo;
-//	}
-//
-//	public void setCartRepo(ICartRepository cartRepo) {
-//		this.cartRepo = cartRepo;
-//	}
+	
+	
+
 
 }

@@ -1,10 +1,13 @@
 package it.akademija.DTO;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class ProductDTO {
@@ -19,6 +22,9 @@ public class ProductDTO {
 	private Double price;
 	@Column
 	private int quantity;
+	
+	@ManyToMany(mappedBy = "products")
+	private List<CartDTO> carts;
 	
 	public ProductDTO()
 	{}
