@@ -19,26 +19,26 @@ public class ProductService {
 		return productRepo.findAll();
 	}
 	
-//	public ProductDTO getProductById(long id) {
-//
-//		return 	productRepo.findOne(id);
-//	}
-//
-//	public ProductDTO createProduct(ProductDTO product) {
-//		return productRepo.save(product);
-//	}
-//
-//	public ProductDTO remove(ProductDTO productById) {
-//		productRepo.delete(productById);
-//		return null;
-//	}
-//
-//	public void addProduct(long product_id, long brand_id) {
-//		System.out.println(product_id+brand_id);
-//	}
-//
-//	public ProductDTO update(ProductDTO oldOne, ProductDTO product) {
-//		return new ProductDTO();
-//	}
+	public ProductDTO getProductById(long id) {
+
+		return 	productRepo.findOne(id);
+	}
+
+	public ProductDTO createProduct(ProductDTO product) {
+		return productRepo.save(product);
+	}
+
+	public ProductDTO remove(ProductDTO productById) {
+		productRepo.delete(productById);
+		return null;
+	}
+
+	public void addProduct(long product_id, long brand_id) {
+		System.out.println(product_id+brand_id);
+	}
+
+	public ProductDTO update(ProductDTO oldOne, ProductDTO product) {
+		return new ProductDTO();
+	}
 
 }

@@ -10,8 +10,8 @@ import it.akademija.Service.CartService;
 import java.util.List;
 
 
-//@RestController
-//@RequestMapping(value = "/api/cart")
+@RestController
+@RequestMapping(value = "/api/cart")
 public class CartController {
 
     @Autowired
