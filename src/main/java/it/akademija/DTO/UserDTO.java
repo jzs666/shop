@@ -3,22 +3,22 @@ package it.akademija.DTO;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public final class UserDTO implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column
-	private String username;
-	@Column
 	private String firstName;
 	@Column
 	private String lastName;
-	@Column
-	private String email;
 
-	@OneToOne
-	(cascade = {CascadeType.DETACH, CascadeType.MERGE})
+	
+	@OneToOne(mappedBy = "customer", cascade= {CascadeType.DETACH, CascadeType.MERGE})
+	@JsonIgnore
 	private CartDTO cartDTO;
 	
 	public CartDTO getCart() {
@@ -27,27 +27,24 @@ public final class UserDTO implements Serializable {
 
 	public void setCart(CartDTO cartDTO) {
 		this.cartDTO = cartDTO;
+		this.cartDTO.setCustomer(this);
 	}
 
 	public UserDTO() {
 	}
+	
+	@Override
+	public String toString()
+	{
+		return(id.toString()+" "+this.firstName+" "+this.lastName);
+	}
 
-	public UserDTO(String username, String firstName, String lastName, String email, CartDTO cartDTO ) {
-		this.username = username;
+	public UserDTO(String firstName, String lastName) {
+
 		this.firstName =firstName;
 		this.lastName = lastName;
-		this.email = email;
-		this.cartDTO = cartDTO;
 	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
+	
 	public String getLastName() {
 		return lastName;
 	}

@@ -9,6 +9,6 @@ it/akademija/Controller/ProductController.class
 it/akademija/Controller/CartController.class
 it/akademija/Respository/IUserDao.class
 it/akademija/Controller/Controller.class
-it/akademija/AppConfig.class
+it/akademija/DTO/UserToUser.class
 it/akademija/DTO/ProductDTO.class
 it/akademija/Service/UserService.class

@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import it.akademija.DTO.ProductDTO;
-import it.akademija.DTO.UserDTO;
+import it.akademija.DTO.*;
 import it.akademija.Service.UserService;
 
 import org.springframework.http.HttpStatus;
@@ -28,7 +27,13 @@ public class Controller {
 	@RequestMapping(path = "/", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createUser(@RequestBody final UserDTO user) {
+		System.out.println("method called");
 		userServicE.createUser(user);
+	}
+	
+	@RequestMapping(path = "/{userId}", method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable final Long userId) {
+		userServicE.deleteUser(userId);
 	}
 
 //	@RequestMapping(path = "/", method = RequestMethod.GET)

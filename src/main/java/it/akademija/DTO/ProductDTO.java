@@ -1,5 +1,6 @@
 package it.akademija.DTO;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -9,8 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class ProductDTO {
+public class ProductDTO implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -24,6 +27,7 @@ public class ProductDTO {
 	private int quantity;
 	
 	@ManyToMany(mappedBy = "products")
+	@JsonIgnore
 	private List<CartDTO> carts;
 	
 	public ProductDTO()

@@ -37,11 +37,6 @@ public class ProductController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public ProductDTO createNewProduct(@Valid @RequestBody final ProductDTO product){
-            productService.createProduct(new ProductDTO( "Nokia", "Description", 222.55, 20));
-        productService.createProduct(new ProductDTO( "Motorola", "Description", 9.55, 20));
-        productService.createProduct(new ProductDTO( "Samsung", "Description", 22772.55, 20));
-        productService.createProduct(new ProductDTO( "Apple", "Description", 88.55, 20));
-        productService.createProduct(new ProductDTO( "Nokia", "Description", 111, 10));
         return productService.createProduct(new ProductDTO());
     }
 
@@ -49,8 +44,8 @@ public class ProductController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.OK)
-    public ProductDTO removeProductById(@PathVariable final Long id){
-        return productService.remove(productService.getProductById(id));
+    public void removeProductById(@PathVariable final Long id){
+        productService.remove(productService.getProductById(id));
     }
 
 

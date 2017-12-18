@@ -13,12 +13,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class CartDTO implements Serializable{
 
     @Id
-    @GeneratedValue
+  //  @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToOne
-    (mappedBy = "cartDTO", cascade = CascadeType.ALL)
-    private UserDTO userDTO;
+    @OneToOne (cascade = CascadeType.ALL)
+    @MapsId
+    @JoinColumn(name = "ID")
+    private UserDTO customer;
   
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "products_CartDTO",
@@ -29,11 +30,11 @@ public class CartDTO implements Serializable{
 
     
   	public UserDTO getCustomer() {
-  		return userDTO;
+  		return customer;
   	}
 
-  	public void setCustomer(UserDTO userDTO) {
-  		this.userDTO = userDTO;
+  	public void setCustomer(UserDTO customer) {
+  		this.customer = customer;
   	}
 
     
