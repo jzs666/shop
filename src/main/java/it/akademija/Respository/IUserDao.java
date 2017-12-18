@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import it.akademija.DTO.UserDTO;
+import it.akademija.Entity.UserEntity;
 
-public interface IUserDao extends JpaRepository<UserDTO, Long>{
+public interface IUserDao extends JpaRepository<UserEntity, Long>{
+
+	UserEntity findByusername(String name);
 	
 }

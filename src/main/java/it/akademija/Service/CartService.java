@@ -8,6 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import it.akademija.DTO.*;
+import it.akademija.Entity.CartEntity;
+import it.akademija.Entity.ProductEntity;
 import it.akademija.Respository.*;
 
 
@@ -18,30 +20,37 @@ public class CartService {
 	@Autowired
 	private ICartRepository cartRepo;
 	
-//	@Autowired
-//	private IProductRepository productRepo;
+	@Autowired
+	private IProductRepository productRepo;
 	
+	@Autowired
+	private IUserDao customer;
 	
-
-	public List<CartDTO> getAll() {
-		return cartRepo.findAll();
-	}
-//
-//	public List<ProductDTO> getProducts(long cart_id) {
-//		return productRepo.findAll();
-//	}
-
-	public CartDTO addCart(CartDTO cart) {
-		return cartRepo.save(cart);
+	public List<ProductEntity> getProducts(long cart_id) {
+		return cartRepo.findOne(cart_id).getProducts();
 	}
 
-	public CartDTO findOne(long id) {
+	public CartEntity addToCart(long product_id, long quantity, String name) {
+//		UserDTO cust = customer.findByusername(name);
+//		List<CartDTO> carts = cartRepo.findAllByProductId(product_id);
+//		System.out.println();
+//		carts.stream().filter((p)=>p)
+//		return cartRepo.save(cart);
+		return new CartEntity();
+	}
+
+	public CartEntity findOne(long id) {
 		return cartRepo.findOne(id);
 	}
 
-	public void delete(CartDTO cart) {
+	public void delete(CartEntity cart) {
 		cartRepo.delete(cart);
 		
+	}
+
+	public void findAll() {
+		System.out.println(cartRepo.findAll());
+//		return new ArryList<CartDTO>();
 	}
 
 //	public void addToCart(Long cart_id, Long product_id) {

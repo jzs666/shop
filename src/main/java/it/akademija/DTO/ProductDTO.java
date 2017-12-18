@@ -1,57 +1,22 @@
 package it.akademija.DTO;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-@Entity
 public class ProductDTO {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	@Column
 	private String title;
-	@Column
+	private long quantity;
+	private double price;
+	private String image;
 	private String description;
-	@Column
-	private Double price;
-	@Column
-	private int quantity;
-	
-	@ManyToMany(mappedBy = "products")
-	private List<CartDTO> carts;
-	
-	public ProductDTO()
-	{}
-	
-	public ProductDTO(String title, String description, double price, int quantity) {
-		this.title = title;
-		this.description = description;
-		this.price = price;
-		this.quantity = quantity;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getDescription() {
-		return description;
+	public long getQuantity() {
+		return quantity;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
 	}
 	public double getPrice() {
 		return price;
@@ -59,12 +24,16 @@ public class ProductDTO {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public long getQuantity() {
-		return quantity;
+	public String getImage() {
+		return image;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void setImage(String image) {
+		this.image = image;
 	}
-	
-
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

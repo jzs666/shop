@@ -1,63 +1,26 @@
 package it.akademija.DTO;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-//import com.fasterxml.jackson.annotation.JsonIgnore;
-
-@Entity
-public class CartDTO implements Serializable{
-
-    @Id
-    @GeneratedValue
-    private Long id;
-
-    @OneToOne
-    (mappedBy = "cartDTO", cascade = CascadeType.ALL)
-    private UserDTO userDTO;
-  
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "products_CartDTO",
-            joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "CartDTO_id",
-                    referencedColumnName = "id"))
-     private List<ProductDTO> products;
-
-    
-  	public UserDTO getCustomer() {
-  		return userDTO;
-  	}
-
-  	public void setCustomer(UserDTO userDTO) {
-  		this.userDTO = userDTO;
-  	}
-
-    
-    public CartDTO(){
-
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public List<ProductDTO> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<ProductDTO> products) {
-        this.products = products;
-    }
-
+public class CartDTO {
+	private long product_id;
+	private long quantity;
+	private long cart_id;
+	public long getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(long product_id) {
+		this.product_id = product_id;
+	}
+	public long getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
+	}
+	public long getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(long cart_id) {
+		this.cart_id = cart_id;
+	}
 
 }
-
